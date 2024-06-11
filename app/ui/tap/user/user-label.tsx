@@ -23,7 +23,6 @@ export const UserLabel: React.FC<UserLabelProps> = ({ user }) => {
           <p>
             {user?.first_name} {user?.last_name}
           </p>
-          <p>{user?.username}</p>
         </div>
       </div>
     </div>
