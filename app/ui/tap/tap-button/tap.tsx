@@ -21,7 +21,8 @@ export function Tap() {
     if (navigator.vibrate) {
       navigator.vibrate(100); // Vibrate for 200 milliseconds
     }
-    setTimeout(() => setIsActive(false), 10);
+    setIsActive(false);
+    // setTimeout(() => setIsActive(false), 10);
   };
 
   return (
@@ -33,7 +34,7 @@ export function Tap() {
     >
       <div
         className={`flex justify-center items-center border-2 border-black rounded-full bg-orange-200 w-[380px] h-[380px] p-8 transition-transform duration-100 ease-in-out ${
-          isActive && "bg-orange-300 scale-95"
+          isActive && "scale-95"
         }`}
       >
         {/* <div
