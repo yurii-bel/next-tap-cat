@@ -7,10 +7,10 @@ import Background from "./ui/background";
 import { Score } from "./ui/tap/indicators/score";
 import { Tap } from "./ui/tap/tap-button/tap";
 import { UserLabel } from "./ui/tap/user/user-label";
+import { User } from "./lib/definitions";
 
-// Dynamically import the WebApp SDK
 const Home: React.FC = () => {
-  const [user, setUser] = useState<{ username?: string } | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const loadTelegramSDK = async () => {
@@ -24,7 +24,12 @@ const Home: React.FC = () => {
           // Get the user data
           const user = telegram.initDataUnsafe?.user;
           if (user) {
-            setUser({ username: user.username });
+            setUser({
+              username: user.username,
+              first_name: user.first_name,
+              last_name: user.last_name,
+              photo_url: user.photo_url,
+            });
           }
 
           // Example: sending data to the Telegram app
@@ -48,7 +53,7 @@ const Home: React.FC = () => {
     <div className="relative h-screen w-full overflow-hidden bg-black/70">
       <Background />
       <div className="relative z-10 h-screen w-full flex flex-col justify-evenly items-center p-2">
-        <UserLabel username={user?.username} />
+        <UserLabel user={user} />
         <Score />
         <Tap />
       </div>
