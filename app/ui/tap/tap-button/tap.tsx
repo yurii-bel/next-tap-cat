@@ -7,6 +7,10 @@ export function Tap() {
   const increment = useStore((state) => state.increment);
   const [isActive, setIsActive] = useState(false);
 
+  let isMobile = /iPhone|iPod|iPad|Android|BlackBerry/.test(
+    navigator.userAgent
+  );
+
   const handleMouseDown = () => {
     setIsActive(true);
   };
@@ -18,11 +22,8 @@ export function Tap() {
   const handleClick = () => {
     increment();
     setIsActive(true);
-    if (navigator.vibrate) {
-      navigator.vibrate(100); // Vibrate for 200 milliseconds
-    }
-    setIsActive(false);
-    // setTimeout(() => setIsActive(false), 10);
+    navigator.vibrate(10);
+    setTimeout(() => setIsActive(false), 10);
   };
 
   return (
