@@ -18,7 +18,10 @@ export function Tap() {
   const handleClick = () => {
     increment();
     setIsActive(true);
-    setTimeout(() => setIsActive(false), 100);
+    if (navigator.vibrate) {
+      navigator.vibrate(100); // Vibrate for 200 milliseconds
+    }
+    setTimeout(() => setIsActive(false), 10);
   };
 
   return (
@@ -29,13 +32,25 @@ export function Tap() {
       className="transition-transform ease-in-out duration-100"
     >
       <div
-        className={`h-full flex flex-col justify-between items-center  p-6 transition-transform duration-100 ease-in-out ${
-          isActive && "scale-90"
+        className={`flex justify-center items-center border-2 border-black rounded-full bg-orange-200 w-[380px] h-[380px] p-8 transition-transform duration-100 ease-in-out ${
+          isActive && "bg-orange-300 scale-95"
         }`}
       >
-        <div className="flex justify-center items-center border-2 border-black rounded-full bg-orange-200 w-[380px] h-[380px] p-8">
-          <Image src={`/cat-2.png`} alt="cat-face" width="320" height="320" />
-        </div>
+        {/* <div
+          className={`h-full flex flex-col justify-between items-cente p-6 transition-transform duration-100 ease-in-out ${
+            isActive && "scale-95"
+          }`}
+        > */}
+        <Image
+          // className={`h-full flex flex-col justify-between items-cente p-2 transition-transform duration-100 ease-in-out ${
+          //   isActive && "scale-95"
+          // }`}
+          src={`/cat-2.png`}
+          alt="cat-face"
+          width="320"
+          height="320"
+        />
+        {/* </div> */}
       </div>
     </button>
   );
