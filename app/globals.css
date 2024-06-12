@@ -25,3 +25,31 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* styles/globals.css or styles/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes fade {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  }
+
+  .animate-fade {
+    animation: fade 1s forwards;
+  }
+
+  .center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -4,3 +4,9 @@ export interface User {
   last_name?: string;
   photo_url?: string;
 }
+
+export interface Click {
+  x: number;
+  y: number;
+  id: string;
+}
