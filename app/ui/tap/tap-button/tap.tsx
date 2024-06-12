@@ -28,7 +28,7 @@ export function Tap() {
 
     setTimeout(() => {
       setClicks((prevClicks) => prevClicks.filter((click) => click.id !== id));
-    }, 2000); // Remove the click effect after 1 second
+    }, 2000);
 
     increment();
     setIsActive(true);
