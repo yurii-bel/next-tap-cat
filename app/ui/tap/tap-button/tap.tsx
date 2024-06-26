@@ -18,7 +18,7 @@ export function Tap() {
     setIsActive(false);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     // tap numbers effect
     const x = e.clientX;
     const y = e.clientY;

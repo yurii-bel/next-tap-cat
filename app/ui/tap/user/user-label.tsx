@@ -1,13 +1,12 @@
 // components/ui/tap/user/user-label.tsx
 "use client"; // Add this line if this component uses hooks or client-specific code
 
-import { User } from "@/app/lib/definitions";
+import { UserLabelProps } from "@/app/lib/definitions";
+import useStore from "@/app/store/store";
 
-interface UserLabelProps {
-  user?: User | null;
-}
+export const UserLabel: React.FC<UserLabelProps> = () => {
+  const user = useStore((state) => state.user);
 
-export const UserLabel: React.FC<UserLabelProps> = ({ user }) => {
   return (
     <div>
       {/* Username & avatar */}
