@@ -6,10 +6,6 @@ import { useEffect } from "react";
 export const usePostUserToDB = () => {
   const user = useStore((state) => state.user);
 
-  if (user) {
-    console.log(user);
-  }
-
   const postUserToDB = async () => {
     try {
       const response = await fetch("/api/post-user", {
@@ -37,7 +33,7 @@ export const usePostUserToDB = () => {
     if (user) {
       postUserToDB();
     }
-  }, [user]);
+  }, []);
 
   return { postUserToDB };
 };

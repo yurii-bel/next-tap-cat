@@ -22,6 +22,7 @@ export const UserLabel: React.FC<UserLabelProps> = () => {
           <p>
             {user?.first_name} {user?.last_name}
           </p>
+          <p>{user?.id}</p>
         </div>
       </div>
     </div>
