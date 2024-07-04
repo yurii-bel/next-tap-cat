@@ -10,6 +10,7 @@ export const loadTelegramSDK = async () => {
 
       // Get the user data
       const user = telegram.initDataUnsafe?.user;
+
       if (user) {
         const setUser = useStore.getState().setUser;
         setUser({
